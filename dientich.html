@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tính Diện Tích Hình Chữ Nhật</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        .input-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        #result {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            display: none;
+        }
+        .error {
+            color: red;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Tính Diện Tích Hình Chữ Nhật</h1>
+    
+    <div class="input-group">
+        <label for="length">Chiều dài:</label>
+        <input type="text" id="length" placeholder="Nhập chiều dài">
+    </div>
+    
+    <div class="input-group">
+        <label for="width">Chiều rộng:</label>
+        <input type="text" id="width" placeholder="Nhập chiều rộng">
+    </div>
+    
+    <button onclick="calculateRectangleArea()">Tính Diện Tích</button>
+    
+    <div id="result"></div>
+    <div id="error" class="error"></div>
+    
+    <script>
+        function calculateRectangleArea() {
+            
+            const lengthInput = document.getElementById('length').value;
+            const widthInput = document.getElementById('width').value;
+            
+            
+            const resultElement = document.getElementById('result');
+            const errorElement = document.getElementById('error');
+            
+           
+            resultElement.style.display = 'none';
+            errorElement.textContent = '';
+            
+            
+            const length = parseFloat(lengthInput);
+            const width = parseFloat(widthInput);
+            
+            
+            if (isNaN(length) || isNaN(width)) {
+                errorElement.textContent = 'Lỗi: Vui lòng nhập giá trị số.';
+                return;
+            }
+            
+            if (length <= 0 || width <= 0) {
+                errorElement.textContent = 'Lỗi: Chiều dài và chiều rộng phải là số dương.';
+                return;
+            }
+            
+            
+            const area = length * width;
+            
+            
+            resultElement.innerHTML = `Diện tích của hình chữ nhật là: <strong>${area}</strong>`;
+            resultElement.style.display = 'block';
+        }
+    </script>
+</body>
+</html>
