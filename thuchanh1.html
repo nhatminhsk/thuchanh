@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Tạo một chương trình quản lý công việc hoàn toàn bằng JavaScript
+document.addEventListener('DOMContentLoaded', function() {
+  // Khởi tạo ứng dụng khi trang được tải
+  const taskManager = new TaskManager();
+  taskManager.init();
+});
+
+// Lớp TaskManager để quản lý các chức năng của ứng dụng
+class TaskManager {
+  constructor() {
+    // Khởi tạo mảng công việc từ localStorage hoặc mảng rỗng
+    this.tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+    this.nextId = this.calculateNextId();
+    this.currentEditId = null;
+  }
+
+  // Tính toán ID tiếp theo cho công việc mới
+  calculateNextId() {
+    if (this.tasks.length === 0) return 1;
+    return Math.max(...this.tasks.map(task => task.id)) + 1;
+  }
+
+  // Tạo giao diện người dùng
+  init() {
+    // Tạo container chính
+    this.createUIElements();
+    
+    // Hiển thị danh sách công việc
+    this.renderTasks();
+    
+    // Đăng ký các sự kiện
+    this.registerEventListeners();
+  }
+
+  // Tạo các phần tử UI
+  createUIElements() {
+    // Tạo và thiết lập container
+    const container = document.createElement('div');
+    container.style.maxWidth = '600px';
+    container.style.margin = '20px auto';
+    container.style.fontFamily = 'Arial, sans-serif';
+    container.style.backgroundColor = '#fff';
+    container.style.borderRadius = '8px';
+    container.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
+    container.style.padding = '20px';
+    
+    // Tạo tiêu đề
+    const title = document.createElement('h1');
+    title.textContent = 'Quản Lý Công Việc';
+    title.style.textAlign = 'center';
+    title.style.marginBottom = '20px';
+    title.style.color = '#333';
+    
+    // Tạo form nhập liệu
+    const form = document.createElement('div');
+    form.style.display = 'flex';
+    form.style.marginBottom = '20px';
+    form.style.gap = '10px';
+    
+    // Input ẩn để lưu ID khi sửa
+    this.taskIdInput = document.createElement('input');
+    this.taskIdInput.type = 'hidden';
+    
+    // Input nhập công việc
+    this.taskInput = document.createElement('input');
+    this.taskInput.type = 'text';
+    this.taskInput.placeholder = 'Nhập công việc mới...';
+    this.taskInput.style.flex = '1';
+    this.taskInput.style.padding = '10px';
+    this.taskInput.style.border = '1px solid #ddd';
+    this.taskInput.style.borderRadius = '4px';
+    this.taskInput.style.fontSize = '16px';
+    
+    // Nút thêm/cập nhật
+    this.addButton = document.createElement('button');
+    this.addButton.textContent = 'Thêm';
+    this.addButton.style.padding = '10px 15px';
+    this.addButton.style.backgroundColor = '#4caf50';
+    this.addButton.style.color = 'white';
+    this.addButton.style.border = 'none';
+    this.addButton.style.borderRadius = '4px';
+    this.addButton.style.cursor = 'pointer';
+    this.addButton.style.fontWeight = 'bold';
+    
+    // Nút hủy
+    this.cancelButton = document.createElement('button');
+    this.cancelButton.textContent = 'Hủy';
+    this.cancelButton.style.padding = '10px 15px';
+    this.cancelButton.style.backgroundColor = '#f44336';
+    this.cancelButton.style.color = 'white';
+    this.cancelButton.style.border = 'none';
+    this.cancelButton.style.borderRadius = '4px';
+    this.cancelButton.style.cursor = 'pointer';
+    this.cancelButton.style.fontWeight = 'bold';
+    this.cancelButton.style.display = 'none';
+    
+    // Danh sách công việc
+    this.taskList = document.createElement('div');
+    this.taskList.style.listStyle = 'none';
+    this.taskList.style.padding = '0';
+    
+    // Gắn các phần tử vào form
+    form.appendChild(this.taskIdInput);
+    form.appendChild(this.taskInput);
+    form.appendChild(this.addButton);
+    form.appendChild(this.cancelButton);
+    
+    // Gắn các phần tử vào container
+    container.appendChild(title);
+    container.appendChild(form);
+    container.appendChild(this.taskList);
+    
+    // Gắn container vào body
+    document.body.appendChild(container);
+    
+    // Thêm một chút style cho body
+    document.body.style.backgroundColor = '#f5f5f5';
+    document.body.style.margin = '0';
+    document.body.style.padding = '0';
+  }
+
+  // Đăng ký các sự kiện
+  registerEventListeners() {
+    // Xử lý sự kiện thêm/cập nhật công việc
+    this.addButton.addEventListener('click', () => {
+      this.handleFormSubmit();
+    });
+    
+    // Xử lý sự kiện nhấn phím Enter trong input
+    this.taskInput.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') {
+        this.handleFormSubmit();
+      }
+    });
+    
+    // Xử lý sự kiện hủy chỉnh sửa
+    this.cancelButton.addEventListener('click', () => {
+      this.cancelEdit();
+    });
+  }
+
+  // Xử lý sự kiện khi form được submit
+  handleFormSubmit() {
+    const taskText = this.taskInput.value.trim();
+    
+    if (!taskText) {
+      alert('Vui lòng nhập công việc!');
+      return;
+    }
+    
+    if (this.currentEditId) {
+      // Cập nhật công việc hiện có
+      this.editTask(this.currentEditId, taskText);
+    } else {
+      // Thêm công việc mới
+      this.addTask(taskText);
+    }
+    
+    // Reset form
+    this.resetForm();
+  }
+
+  // Thêm công việc mới
+  addTask(taskText) {
+    const task = {
+      id: this.nextId++,
+      text: taskText,
+      completed: false,
+      createdAt: new Date().toISOString()
+    };
+    
+    this.tasks.push(task);
+    this.saveTasks();
+    this.renderTasks();
+  }
+
+  // Hiển thị danh sách công việc
+  renderTasks() {
+    // Xóa nội dung hiện tại
+    this.taskList.innerHTML = '';
+    
+    // Hiển thị thông báo nếu không có công việc
+    if (this.tasks.length === 0) {
+      const emptyMessage = document.createElement('p');
+      emptyMessage.textContent = 'Không có công việc nào. Hãy thêm công việc mới!';
+      emptyMessage.style.textAlign = 'center';
+      emptyMessage.style.color = '#999';
+      emptyMessage.style.padding = '20px';
+      this.taskList.appendChild(emptyMessage);
+      return;
+    }
+    
+    // Hiển thị danh sách công việc
+    this.tasks.forEach(task => {
+      const taskItem = document.createElement('div');
+      taskItem.style.display = 'flex';
+      taskItem.style.justifyContent = 'space-between';
+      taskItem.style.alignItems = 'center';
+      taskItem.style.padding = '15px';
+      taskItem.style.borderBottom = '1px solid #eee';
+      taskItem.style.transition = 'background-color 0.3s';
+      
+      // Thêm hover effect
+      taskItem.addEventListener('mouseover', () => {
+        taskItem.style.backgroundColor = '#f9f9f9';
+      });
+      
+      taskItem.addEventListener('mouseout', () => {
+        taskItem.style.backgroundColor = 'transparent';
+      });
+      
+      // Tạo phần nội dung công việc
+      const taskContent = document.createElement('div');
+      taskContent.style.display = 'flex';
+      taskContent.style.alignItems = 'center';
+      taskContent.style.gap = '10px';
+      
+      // Tạo checkbox
+      const checkbox = document.createElement('input');
+      checkbox.type = 'checkbox';
+      checkbox.checked = task.completed;
+      checkbox.style.width = '18px';
+      checkbox.style.height = '18px';
+      checkbox.style.cursor = 'pointer';
+      
+      // Đăng ký sự kiện cho checkbox
+      checkbox.addEventListener('change', () => {
+        this.toggleTaskStatus(task.id);
+      });
+      
+      // Tạo text cho công việc
+      const taskText = document.createElement('span');
+      taskText.textContent = task.text;
+      
+      // Nếu đã hoàn thành thì gạch ngang
+      if (task.completed) {
+        taskText.style.textDecoration = 'line-through';
+        taskText.style.color = '#999';
+      }
+      
+      // Thêm nội dung vào phần content
+      taskContent.appendChild(checkbox);
+      taskContent.appendChild(taskText);
+      
+      // Tạo phần chứa các nút hành động
+      const taskActions = document.createElement('div');
+      taskActions.style.display = 'flex';
+      taskActions.style.gap = '5px';
+      
+      // Tạo nút sửa
+      const editBtn = document.createElement('button');
+      editBtn.textContent = 'Sửa';
+      editBtn.style.padding = '5px 10px';
+      editBtn.style.backgroundColor = '#2196f3';
+      editBtn.style.color = 'white';
+      editBtn.style.border = 'none';
+      editBtn.style.borderRadius = '3px';
+      editBtn.style.cursor = 'pointer';
+      editBtn.style.fontSize = '14px';
+      
+      // Đăng ký sự kiện cho nút sửa
+      editBtn.addEventListener('click', () => {
+        this.startEdit(task.id);
+      });
+      
+      // Tạo nút xóa
+      const deleteBtn = document.createElement('button');
+      deleteBtn.textContent = 'Xóa';
+      deleteBtn.style.padding = '5px 10px';
+      deleteBtn.style.backgroundColor = '#f44336';
+      deleteBtn.style.color = 'white';
+      deleteBtn.style.border = 'none';
+      deleteBtn.style.borderRadius = '3px';
+      deleteBtn.style.cursor = 'pointer';
+      deleteBtn.style.fontSize = '14px';
+      
+      // Đăng ký sự kiện cho nút xóa
+      deleteBtn.addEventListener('click', () => {
+        this.deleteTask(task.id);
+      });
+      
+      // Thêm các nút vào phần actions
+      taskActions.appendChild(editBtn);
+      taskActions.appendChild(deleteBtn);
+      
+      // Gắn các phần vào taskItem
+      taskItem.appendChild(taskContent);
+      taskItem.appendChild(taskActions);
+      
+      // Thêm taskItem vào danh sách
+      this.taskList.appendChild(taskItem);
+    });
+  }
+
+  // Bắt đầu chỉnh sửa công việc
+  startEdit(taskId) {
+    const task = this.tasks.find(t => t.id === taskId);
+    if (!task) return;
+    
+    // Cập nhật UI
+    this.taskInput.value = task.text;
+    this.currentEditId = taskId;
+    this.addButton.textContent = 'Cập nhật';
+    this.cancelButton.style.display = 'block';
+    
+    // Focus vào input
+    this.taskInput.focus();
+  }
+
+  // Hủy chỉnh sửa
+  cancelEdit() {
+    this.resetForm();
+  }
+
+  // Reset form về trạng thái ban đầu
+  resetForm() {
+    this.taskInput.value = '';
+    this.currentEditId = null;
+    this.addButton.textContent = 'Thêm';
+    this.cancelButton.style.display = 'none';
+  }
+
+  // Cập nhật công việc
+  editTask(taskId, newText) {
+    const taskIndex = this.tasks.findIndex(t => t.id === taskId);
+    if (taskIndex === -1) return;
+    
+    this.tasks[taskIndex].text = newText;
+    this.tasks[taskIndex].updatedAt = new Date().toISOString();
+    
+    this.saveTasks();
+    this.renderTasks();
+  }
+
+  // Xóa công việc
+  deleteTask(taskId) {
+    if (confirm('Bạn có chắc chắn muốn xóa công việc này?')) {
+      this.tasks = this.tasks.filter(task => task.id !== taskId);
+      this.saveTasks();
+      this.renderTasks();
+    }
+  }
+
+  // Thay đổi trạng thái công việc
+  toggleTaskStatus(taskId) {
+    const task = this.tasks.find(t => t.id === taskId);
+    if (!task) return;
+    
+    task.completed = !task.completed;
+    this.saveTasks();
+    this.renderTasks();
+  }
+
+  // Lưu danh sách công việc vào localStorage
+  saveTasks() {
+    localStorage.setItem('tasks', JSON.stringify(this.tasks));
+  }
+}
+    </script>
+    
+</body>
+</html>
