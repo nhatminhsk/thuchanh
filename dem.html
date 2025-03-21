@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ứng dụng đếm từ</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: bisque;
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        textarea {
+            width: 100%;
+            height: 150px;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #333;
+            border-radius: 4px;
+        }
+        button {
+            padding: 10px 15px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        #result {
+            margin-top: 20px;
+            border: 1px solid #333;
+            border-radius: 4px;
+            padding: 15px;
+            max-height: 300px;
+            overflow-y: auto;
+            background: #fff;
+        }
+        .word-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 5px 0;
+            border-bottom: 1px solid #eee;
+        }
+        .word-count {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Ứng dụng đếm từ</h1>
+    
+    <div>
+        <p>Hãy nhập văn bản bạn muốn:</p>
+        <textarea id="userText" placeholder="Nhập văn bản ở đây..."></textarea>
+        <button onclick="countWords()">Đếm từ</button>
+    </div>
+    
+    <div id="result"></div>
+
+    <script>
+        function countWords() {
+            // Lấy văn bản từ người dùng
+            const text = document.getElementById('userText').value;
+            
+            // Kiểm tra nếu văn bản trống
+            if (!text.trim()) {
+                document.getElementById('result').innerHTML = '<p>Vui lòng nhập văn bản để phân tích</p>';
+                return;
+            }
+            
+            // Chuyển đổi văn bản thành chữ thường và loại bỏ các ký tự đặc biệt
+            const cleanText = text.toLowerCase().replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, '');
+            
+            // Tách văn bản thành các từ
+            const words = cleanText.split(/\s+/).filter(word => word.length > 0);
+            
+            // Đếm số lần xuất hiện của mỗi từ
+            const wordCount = {};
+            words.forEach(word => {
+                if (wordCount[word]) {
+                    wordCount[word]++;
+                } else {
+                    wordCount[word] = 1;
+                }
+            });
+            
+            // Sắp xếp từ theo số lần xuất hiện (giảm dần)
+            const sortedWords = Object.keys(wordCount).sort((a, b) => {
+                return wordCount[b] - wordCount[a];
+            });
+            
+            // Hiển thị kết quả
+            let resultHTML = `<h3>Kết quả phân tích (${words.length} từ, ${sortedWords.length} từ duy nhất):</h3>`;
+            
+            if (sortedWords.length > 0) {
+                sortedWords.forEach(word => {
+                    resultHTML += `
+                        <div class="word-item">
+                            <span class="word-text">"${word}"</span>
+                            <span class="word-count">${wordCount[word]} lần</span>
+                        </div>
+                    `;
+                });
+            } else {
+                resultHTML += '<p>Không tìm thấy từ nào trong văn bản</p>';
+            }
+            
+            document.getElementById('result').innerHTML = resultHTML;
+        }
+    </script>
+</body>
+</html>
