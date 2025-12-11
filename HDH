@@ -1,0 +1,145 @@
+1) Ba mục đích chính của một hệ điều hành là gì?
+ Thực thi các chương trình người dùng và giúp giải quyết các vấn đề của người dùng dễ dàng hơn
+Làm cho hệ thống máy tính trở lên thuận tiện khi sử dụng 
+Sử dụng phần cứng máy tính một cách hiệu quả 
+2) Hệ thống có khả năng tương tác hiệu quả với người dùng là hệ thống nào? 
+Hệ thống chia sẻ thời gian (time-sharing) là hệ thống có khả năng tương tác hiệu quả với người dùng. 
+3) Hệ thống được sử dụng trong các thiết bị chuyên dụng điều khiển máy móc là hệ thống nào? Hệ thống thời gian thực (real-time) được sử dụng trong các thiết bị chuyên dụng điều khiển máy móc. 
+4) Hệ điều hành nào hỗ trợ tính toán hiệu năng cao? 
+Hệ điều hành xử lý song song (parallel processing) hỗ trợ tính toán hiệu năng cao. 
+5) Hệ điều hành phát triển được chi phối bởi yếu tố gì? Sự phát triển của hệ điều hành được chi phối bởi hai yếu tố chính: nhu cầu của người dùng và sự tiến bộ của phần cứng. 
+6) Trong môi trường đa chương và chia sẻ thời gian, nhiều người dùng chia sẻ hệ thống đồng thời, điều này có thể mang đến những vấn đề gì? 
+Việc nhiều người dùng chia sẻ hệ thống đồng thời trong môi trường đa chương và chia sẻ thời gian có thể dẫn đến các vấn đề về bảo mật và bảo vệ. Các vấn đề bao gồm việc bảo vệ dữ liệu và bộ nhớ của người dùng này khỏi việc bị người dùng khác truy cập trái phép. 
+7) Hệ điều hành đã trải qua các giai đoạn phát triển nào? Thách thức và vấn đề của từng giai đoạn là gì? 
+Hệ điều hành đã trải qua các giai đoạn phát triển chính như: hệ thống xử lý theo lô (batch systems), hệ thống đa chương (multiprogramming), hệ thống chia sẻ thời gian (time-sharing), hệ thống phân tán (distributed systems), hệ thống thời gian thực (real-time systems) và hệ thống nhúng (embedded systems). 
+Thách thức và vấn đề của từng giai đoạn bao gồm:
+ • Hệ thống xử lý theo lô: Tối ưu hóa việc sử dụng CPU, nhưng lại thiếu tính tương tác.
+ • Hệ thống đa chương và chia sẻ thời gian: Cần cơ chế bảo vệ bộ nhớ, lập lịch CPU và bảo mật để xử lý nhiều tác vụ cùng lúc.
+ • Hệ thống phân tán: Vấn đề về truyền thông, đồng bộ hóa và xử lý lỗi.
+ • Hệ thống thời gian thực: Đảm bảo thời gian phản hồi nghiêm ngặt, độ tin cậy và an toàn cao. 8) Hệ điều hành phải làm gì để khắc phục vấn đề về phần cứng, màn hình nhỏ… trên thiết bị di động? 
+Để khắc phục các vấn đề về phần cứng hạn chế như màn hình nhỏ, bàn phím ảo, và tài nguyên pin, hệ điều hành trên thiết bị di động đã phát triển giao diện người dùng dựa trên cảm ứng, bàn phím trên màn hình và các tính năng quản lý năng lượng hiệu quả. 
+9) Hệ điều hành trên máy tính Mainframe có các đặc tính gì? 
+Hệ điều hành trên máy tính Mainframe thường có các đặc tính như: xử lý theo lô (batch processing), đa chương (multiprogramming) và chia sẻ thời gian (time-sharing). 
+10) Hệ điều hành thời gian thực có những loại gì? Đặc tính của từng loại? 
+Hệ điều hành thời gian thực được chia thành hai loại chính:
+ • Hệ thống thời gian thực cứng (Hard real-time systems): Yêu cầu nghiêm ngặt về thời gian. Thất bại trong việc đáp ứng thời gian phản hồi có thể dẫn đến hậu quả nghiêm trọng. Thường được sử dụng trong các hệ thống điều khiển công nghiệp và y tế.
+ • Hệ thống thời gian thực mềm (Soft real-time systems): Ưu tiên các tác vụ thời gian thực, nhưng việc bỏ lỡ thời hạn không gây ra lỗi nghiêm trọng, chỉ làm giảm hiệu suất hệ thống. 
+11) Hệ điều hành có thể phân loại theo những tiêu chí nào? Mỗi cách phân loại có những loại hệ điều hành nào? 
+Hệ điều hành có thể được phân loại theo các tiêu chí như: 
+• Theo chức năng: Đơn chương, đa chương, chia sẻ thời gian, xử lý theo lô, thời gian thực. 
+• Theo kiến trúc: Phân tán, xử lý song song, client/server, hệ điều hành nhúng. 
+12) Hệ thống đa chương là gì? 
+Hệ thống đa chương (multiprogramming system) là hệ thống mà tại một thời điểm, có nhiều tiến trình được nạp vào bộ nhớ, và CPU luôn được cấp phát cho một trong số các tiến trình đó, nhằm tối đa hóa việc sử dụng CPU. 
+13) Hệ thống chia sẻ thời gian là gì? 
+Hệ thống chia sẻ thời gian (time-sharing system) là một loại hệ thống đa chương. Nó sử dụng cơ chế chuyển đổi ngữ cảnh nhanh chóng giữa các tiến trình, tạo ra ảo giác rằng mỗi người dùng đều có một hệ thống riêng, cho phép tương tác trực tiếp với máy tính. 
+14) Lập lịch ưu tiên là gì? 
+Lập lịch ưu tiên là một thuật toán lập lịch trình CPU, trong đó mỗi tiến trình được gán một độ ưu tiên. CPU được cấp phát cho tiến trình có độ ưu tiên cao nhất. 
+15) Chế độ giám sát và chế độ người sử dụng giúp bảo vệ hệ thống như thế nào? 
+• Chế độ giám sát (monitor mode): Còn gọi là chế độ đặc quyền (privileged mode), là chế độ mà hệ điều hành chạy, cho phép truy cập và thực thi các lệnh đặc quyền. 
+• Chế độ người dùng (user mode): Là chế độ mà các chương trình ứng dụng chạy, không được phép thực thi các lệnh đặc quyền. Sự phân tách này giúp bảo vệ hệ thống khỏi các hành động độc hại hoặc lỗi từ các chương trình ứng dụng, ngăn chúng truy cập trực tiếp vào các tài nguyên quan trọng của hệ thống. 
+16) Sự khác biệt giữa bẫy và ngắt là gì? Chức năng của chúng là gì? 
+• Ngắt (interrupt): Là một tín hiệu từ phần cứng (ví dụ: bộ điều khiển I/O) để tạm dừng CPU và yêu cầu dịch vụ từ hệ điều hành. Chức năng chính là thông báo cho hệ điều hành về sự kiện hoàn thành I/O hoặc lỗi phần cứng. 
+• Bẫy (trap): Là một ngắt được tạo ra bởi phần mềm (ví dụ: một lỗi chia cho 0, một lệnh hệ thống). Chức năng của bẫy là thông báo lỗi hoặc yêu cầu dịch vụ từ hệ điều hành. 
+17) Chế độ đặc quyền là gì? Cho một ví dụ của lệnh đặc quyền. 
+Chế độ đặc quyền (privileged mode) là chế độ thực thi mà CPU có thể truy cập tất cả các tài nguyên và thực thi tất cả các lệnh của hệ thống. Một ví dụ của lệnh đặc quyền là lệnh thay đổi trạng thái của CPU từ chế độ đặc quyền sang chế độ người dùng hoặc ngược lại. 
+18) Đưa ra 2 lý do tại sao cache hữu ích. Nêu những vấn đề cache giải quyết. Nêu những vấn đề do cache gây ra? 
+• Lý do cache hữu ích: Tăng tốc độ truy cập dữ liệu bằng cách lưu trữ bản sao dữ liệu thường xuyên được truy cập từ bộ nhớ chính vào một bộ nhớ đệm nhỏ và nhanh hơn. Cache giải quyết vấn đề chênh lệch tốc độ giữa CPU và bộ nhớ chính. 
+• Vấn đề do cache gây ra: Vấn đề chính là sự không nhất quán (inconsistency). Khi dữ liệu trong bộ nhớ chính và bộ nhớ cache không đồng bộ, có thể dẫn đến lỗi. 
+19) Khi người sử dụng muốn truy cập vào hệ thống máy tính từ xa, thành phần nào sẽ cung cấp băng thông cho truy cập đó? 
+Phần cứng, cụ thể là các thiết bị mạng như modem và card mạng, cung cấp băng thông cho việc truy cập từ xa. 
+20) Liệu người dùng có thể truy cập vào bộ nhớ của một hệ thống máy tính khi HĐH không hoạt động được không? 
+Không. Khi hệ điều hành không hoạt động, người dùng không thể truy cập vào bộ nhớ vì hệ điều hành chịu trách nhiệm quản lý và cấp phát bộ nhớ.
+
+
+1.	Cấu trúc RAID 0 và RAID 2 
+RAID 0 (Striping) 
+• Cấu trúc và Hoạt động: RAID 0, hay còn gọi là striping, là cấu hình RAID cơ bản nhất. Dữ liệu được chia thành các khối (blocks) và ghi lần lượt trên các ổ đĩa khác nhau trong mảng. Ví dụ, khối dữ liệu đầu tiên được ghi vào Đĩa 1, khối thứ hai vào Đĩa 2, và cứ thế tiếp tục. Điều này giúp tăng tốc độ đọc/ghi vì hệ thống có thể truy cập nhiều ổ đĩa cùng một lúc.
+ • Ưu điểm:
+ o Hiệu suất cao: Tốc độ đọc và ghi được cải thiện đáng kể do dữ liệu được xử lý song song trên nhiều ổ đĩa.
+    o Tận dụng toàn bộ dung lượng: Toàn bộ dung lượng của các ổ đĩa được sử dụng để lưu trữ dữ liệu.
+    o Chi phí thấp: Dễ dàng triển khai và không yêu cầu phần cứng phức tạp.
+ • Nhược điểm:
+    o Không có khả năng chịu lỗi (Fault Tolerance): Nếu một ổ đĩa trong mảng RAID 0 bị hỏng, toàn bộ dữ liệu trên tất cả các ổ đĩa sẽ bị mất và không thể phục hồi.
+    o Không phù hợp cho dữ liệu quan trọng: Do rủi ro mất dữ liệu cao, RAID 0 không phải là lựa chọn tốt để lưu trữ các thông tin nhạy cảm hoặc không thể thay thế. 
+RAID 2 (Hamming Code ECC)
+ • Cấu trúc và Hoạt động: RAID 2 sử dụng kỹ thuật striping ở cấp độ bit thay vì cấp độ khối. Dữ liệu được chia nhỏ đến từng bit và ghi trên các ổ đĩa dữ liệu. Các ổ đĩa còn lại trong mảng được dùng để lưu mã sửa lỗi (ECC - Error-Correcting Code), thường là mã Hamming. Khi dữ liệu được đọc, mã ECC sẽ được kiểm tra để phát hiện và sửa lỗi bit đơn.
+ • Ưu điểm: 
+     o Khả năng sửa lỗi nhanh chóng: Có thể phát hiện và sửa lỗi "on-the-fly" (ngay trong lúc hoạt động). 
+     o Tốc độ truyền dữ liệu cao: Do dữ liệu được striping trên nhiều ổ đĩa.
+ • Nhược điểm: 
+     o Chi phí cao: Yêu cầu một số lượng lớn ổ đĩa, vì cần nhiều ổ đĩa dành riêng cho việc lưu mã ECC.
+     o Lỗi thời và không hiệu quả: Các ổ cứng hiện đại đã tích hợp sẵn cơ chế phát hiện và sửa lỗi bên trong. Do đó, RAID 2 trở nên phức tạp và tốn kém một cách không cần thiết.
+     o Không được sử dụng trong thực tế: Vì những nhược điểm trên, RAID 2 hiện nay không còn được ứng dụng trên thị trường.
+
+
+1. Hai danh mục chính của thiết bị I/O
+Hai danh mục chính của thiết bị I/O được mô tả là Thiết bị Khối (Block Device) và Thiết bị Ký tự (Character Device).
+Thuộc tính thiết yếu phân biệt chúng là cách chúng lưu trữ và truyền thông tin: Thiết bị Khối lưu trữ thông tin theo các khối có kích thước cố định, có thể đọc và ghi độc lập (có địa chỉ). Ngược lại, Thiết bị Ký tự giao nhận một luồng ký tự mà không có cấu trúc khối, không có địa chỉ và không có thao tác tìm kiếm (seek operation).
+2. Khái niệm I/O ánh xạ bộ nhớ (Memory-Mapped I/O)
+I/O ánh xạ bộ nhớ (Memory-Mapped I/O) là một cơ chế I/O trong đó các thanh ghi điều khiển thiết bị và bộ đệm dữ liệu được ánh xạ vào không gian địa chỉ bộ nhớ chính. Điều này cho phép chúng được truy cập bằng các lệnh tham chiếu bộ nhớ tiêu chuẩn.
+Một lợi thế của phương pháp này so với việc sử dụng không gian cổng I/O riêng biệt là nó không yêu cầu các lệnh I/O đặc biệt; thay vào đó, các lệnh bộ nhớ hiện có có thể được sử dụng.
+3. Truy cập Bộ nhớ Trực tiếp (DMA)
+Truy cập Bộ nhớ Trực tiếp (DMA) là một cơ chế trong đó một bộ điều khiển phần cứng chuyên dụng chuyển các khối dữ liệu giữa thiết bị I/O và bộ nhớ chính với sự can thiệp tối thiểu của CPU.
+Ưu điểm chính của DMA so với I/O điều khiển bằng ngắt là nó chỉ tạo ra một ngắt khi toàn bộ quá trình truyền hoàn tất. Điều này giúp giảm thiểu sự can thiệp của CPU, cho phép CPU được giải phóng để thực hiện công việc khác.
+4. Bốn thuộc tính của ngắt chính xác (Precise Interrupt)
+Bốn thuộc tính của một ngắt chính xác (precise interrupt) là:
+•	Tất cả các lệnh trước Thanh ghi đếm chương trình (PC) đã hoàn thành.
+•	Không có lệnh nào sau PC đã hoàn thành.
+•	Trạng thái của lệnh tại PC đã được biết.
+Ngắt không chính xác (imprecise interrupts) gây ra vấn đề cho các lập trình viên hệ điều hành vì chúng không để lại máy tính trong một trạng thái xác định rõ ràng. Các lệnh xung quanh PC có thể đang ở các giai đoạn hoàn thành một phần khác nhau, khiến hệ điều hành khó xác định được điều gì đã xảy ra và phải làm gì tiếp theo.
+5. Nguyên tắc cốt lõi của "độc lập thiết bị"
+Nguyên tắc cốt lõi của "độc lập thiết bị (device independence)" là các chương trình nên có khả năng truy cập bất kỳ thiết bị I/O nào mà không cần phải chỉ định thiết bị đó trước. Hệ điều hành sau đó sẽ xử lý các khác biệt cụ thể giữa các thiết bị.
+6. Bốn lớp của hệ thống phần mềm I/O
+Bốn lớp của hệ thống phần mềm I/O, từ phần cứng lên đến cấp người dùng, bao gồm:
+1.	Trình điều khiển thiết bị (Device Driver): Mã cụ thể cho thiết bị, nhận các yêu cầu trừu tượng từ phần mềm độc lập với thiết bị và ban hành các lệnh cụ thể đến bộ điều khiển thiết bị.
+2.	Phần mềm độc lập với thiết bị (Device-Independent Software): Cung cấp giao diện chung cho tất cả các trình điều khiển thiết bị, thực hiện các chức năng chung như đệm (buffering) và cấp phát lỗi.
+3.	Phần mềm không gian người dùng (User-Space Software): Bao gồm các chương trình như Spooling và các thư viện I/O.
+4.	Giao diện người dùng (User Interface): Bao gồm các giao diện cấp cao như GUI (Graphical User Interface).
+7. RAID và sự khác biệt giữa RAID cấp 0 và cấp 1
+RAID (Redundant Array of Independent Disks) là một phương pháp kết hợp nhiều ổ đĩa vật lý thành một đơn vị logic duy nhất để cải thiện hiệu suất, độ tin cậy hoặc cả hai.
+Sự khác biệt cơ bản là:
+•	RAID cấp 0 sử dụng kỹ thuật striping để phân phối dữ liệu trên nhiều ổ đĩa, cho phép hoạt động song song để tăng hiệu suất. Nó không cung cấp khả năng dự phòng.
+•	RAID cấp 1 sử dụng mirroring (ngầm định) để cung cấp độ tin cậy, trong đó dữ liệu được ghi lên hai ổ đĩa giống hệt nhau.
+8. Mục đích và cách hoạt động của "thuật toán thang máy" (Elevator Algorithm)
+Mục đích của "thuật toán thang máy (elevator algorithm)" là tối ưu hóa thời gian tìm kiếm (seek time) bằng cách lập lịch các yêu cầu truy cập đĩa. Thuật toán hoạt động bằng cách di chuyển tay đĩa theo một hướng, phục vụ tất cả các yêu cầu trên đường đi của nó. Khi tay đĩa đạt đến điểm cuối hoặc không còn yêu cầu nào ở hướng đó, nó sẽ đảo ngược hướng và tiếp tục phục vụ các yêu cầu theo hướng ngược lại.
+9. Khái niệm "lưu trữ ổn định" (Stable Storage)
+"Lưu trữ ổn định (Stable Storage)" là một cách triển khai phần mềm sử dụng một cặp đĩa giống hệt nhau.
+Thuộc tính mà nó đảm bảo cho các thao tác ghi, ngay cả khi xảy ra sự cố CPU, là thao tác ghi được đảm bảo sẽ hoàn thành một cách chính xác hoặc không làm gì cả, giữ nguyên dữ liệu ban đầu.
+10. "Chế độ thô" (Raw Mode) và "chế độ chính tắc/nấu" (Canonical/Cooked Mode)
+Trong ngữ cảnh phần mềm bàn phím, sự khác biệt giữa hai chế độ là:
+•	Chế độ thô (Raw Mode): Là chế độ nhập liệu theo ký tự, nơi trình điều khiển chấp nhận đầu vào và truyền nó lên chương trình mà không sửa đổi, bao gồm tất cả các phím thô và sửa lỗi.
+•	Chế độ chính tắc/nấu (Canonical/Cooked Mode): Là chế độ nhập liệu theo dòng, nơi trình điều khiển thiết bị xử lý tất cả các chỉnh sửa nội dòng (ví dụ: backspace, xóa dòng) và chỉ chuyển giao dòng đã được sửa chữa cuối cùng cho các chương trình người dùng.
+
+
+
+
+
+ACPI (Advanced Configuration and Power Interface)Một cơ chế phức tạp để quản lý nguồn điện, cho phép hệ điều hành gửi lệnh đến các trình điều khiển để báo cáo về khả năng của thiết bị và thay đổi mức năng lượng.
+Block Device (Thiết bị Khối)Một thiết bị I/O lưu trữ thông tin trong các khối có kích thước cố định, mỗi khối có địa chỉ riêng. Tất cả các lần truyền đều là đơn vị một hoặc nhiều khối, và mỗi khối có thể được đọc hoặc ghi độc lập. Ví dụ bao gồm ổ đĩa cứng và USB.
+Buffering (Bộ đệm)Một kỹ thuật được sử dụng bởi phần mềm I/O trong đó dữ liệu được lưu trữ tạm thời trong bộ nhớ (một bộ đệm) để xử lý sự không khớp về tốc độ giữa thiết bị và CPU, hoặc để tách rời tốc độ tạo dữ liệu khỏi tốc độ tiêu thụ. Bộ đệm có thể xảy ra trong không gian người dùng hoặc không gian kernel.
+Burst Mode (Chế độ truyền liên tục)Một hình thức hoạt động của DMA, trong đó bộ điều khiển DMA yêu cầu một thiết bị chiếm bus, thực hiện một loạt các lần truyền, và sau đó giải phóng bus. Nó hiệu quả hơn so với "Cycle Stealing" cho việc truyền nhiều từ.
+Canonical Mode (Chế độ Chính tắc)Còn được gọi là "chế độ nấu" (cooked mode), là chế độ nhập bàn phím theo dòng, trong đó trình điều khiển thiết bị xử lý tất cả việc chỉnh sửa nội dòng (ví dụ: backspace, xóa dòng) và chỉ chuyển giao dòng đã được sửa chữa cuối cùng cho các chương trình người dùng.
+Character Device (Thiết bị Ký tự)Một thiết bị I/O giao nhận một luồng ký tự mà không cần quan tâm đến bất kỳ cấu trúc khối nào. Nó không có địa chỉ và không có thao tác tìm kiếm (seek). Ví dụ bao gồm máy in, giao diện mạng và chuột.
+Cycle Stealing (Đánh cắp Chu kỳ)Một cơ chế trong DMA, trong đó bộ điều khiển thiết bị lén lút "đánh cắp" một chu kỳ bus không thường xuyên từ CPU để truyền một từ dữ liệu, làm chậm CPU một chút.
+Device Controller (Bộ điều khiển Thiết bị/Bộ điều hợp)Thành phần điện tử của một đơn vị I/O giao tiếp với hệ điều hành. Nó chuyển đổi luồng bit nối tiếp từ thiết bị thành một khối byte, thực hiện sửa lỗi và có các thanh ghi cho lệnh và trạng thái.
+Device Driver (Trình điều khiển Thiết bị)Mã cụ thể cho thiết bị, thường được viết bởi nhà sản xuất thiết bị, để điều khiển một thiết bị I/O. Nó chấp nhận các yêu cầu trừu tượng từ phần mềm độc lập với thiết bị và ban hành các lệnh cụ thể đến bộ điều khiển thiết bị.
+Device Independence (Độc lập Thiết bị)Một mục tiêu cốt lõi của phần mềm I/O, nghĩa là các chương trình có thể truy cập bất kỳ thiết bị I/O nào mà không cần phải chỉ định thiết bị đó trước. Hệ điều hành xử lý các khác biệt cụ thể giữa các thiết bị.
+DMA (Direct Memory Access - Truy cập Bộ nhớ Trực tiếp)Một cơ chế trong đó một bộ điều khiển phần cứng chuyên dụng truyền các khối dữ liệu giữa thiết bị I/O và bộ nhớ chính với sự can thiệp tối thiểu của CPU, chỉ tạo ra một ngắt khi toàn bộ quá trình truyền hoàn tất.
+Double Buffering (Bộ đệm Đôi)Một cơ chế bộ đệm sử dụng hai bộ đệm. Trong khi một bộ đệm đang được sử dụng cho I/O (ví dụ: được sao chép vào không gian người dùng), bộ đệm kia có thể được sử dụng để tích lũy dữ liệu mới, nhờ đó ngăn ngừa mất dữ liệu trong quá trình truyền.
+Elevator Algorithm (Thuật toán Thang máy)Một thuật toán lập lịch tay đĩa, trong đó tay đĩa di chuyển theo một hướng, phục vụ tất cả các yêu cầu trên đường đi của nó, cho đến khi nó đến cuối hoặc không còn yêu cầu nào ở hướng đó, lúc đó nó đảo ngược và phục vụ các yêu cầu theo hướng khác.
+GUI (Graphical User Interface - Giao diện Đồ họa Người dùng)Một giao diện dựa trên cửa sổ, biểu tượng, menu và một thiết bị trỏ (WIMP). Ngược lại với giao diện dòng lệnh, GUI thường được điều khiển bằng sự kiện.
+Imprecise Interrupt (Ngắt Không Chính xác)Một ngắt không để lại máy tính trong một trạng thái xác định rõ ràng. Các lệnh xung quanh bộ đếm chương trình (PC) có thể đang ở các giai đoạn hoàn thành một phần khác nhau, gây khó khăn cho hệ điều hành trong việc xác định điều gì đã xảy ra và phải làm gì tiếp theo.
+Interrupt Vector (Vector Ngắt)Một bảng trong bộ nhớ được CPU sử dụng để tìm địa chỉ của thủ tục dịch vụ ngắt chính xác. Số được cung cấp bởi bộ điều khiển ngắt được sử dụng làm chỉ mục vào bảng này để tìm nạp một bộ đếm chương trình mới.
+Memory-Mapped I/O (I/O Ánh xạ Bộ nhớ)Một cơ chế I/O trong đó các thanh ghi điều khiển thiết bị và bộ đệm dữ liệu được ánh xạ vào không gian địa chỉ bộ nhớ chính. Điều này cho phép chúng được truy cập bằng các lệnh tham chiếu bộ nhớ tiêu chuẩn.
+Polling (Busy Waiting - Chờ Bận)Một phương pháp được sử dụng trong I/O được lập trình, trong đó CPU liên tục kiểm tra trạng thái của một thiết bị I/O trong một vòng lặp chặt chẽ để xem thiết bị đã sẵn sàng cho thao tác tiếp theo chưa. Điều này làm CPU bị bận cho đến khi I/O hoàn tất.
+Precise Interrupt (Ngắt Chính xác)Một ngắt để lại máy tính trong một trạng thái xác định rõ ràng, đảm bảo tất cả các lệnh trước PC đã hoàn thành, không có lệnh nào sau PC đã hoàn thành và trạng thái của lệnh tại PC đã được biết.
+Programmed I/O (I/O được Lập trình)Hình thức I/O đơn giản nhất, trong đó CPU thực hiện tất cả công việc, di chuyển dữ liệu giữa bộ nhớ và thiết bị từng byte hoặc từng từ một, thường sử dụng polling để chờ thiết bị sẵn sàng.
+RAID (Redundant Array of Independent Disks - Mảng Đĩa Độc lập Dự phòng)Một phương pháp kết hợp nhiều ổ đĩa vật lý thành một đơn vị logic duy nhất để cải thiện hiệu suất, độ tin cậy hoặc cả hai. Các cấu hình khác nhau được gọi là các cấp độ RAID.
+Raw Mode (Chế độ Thô)Một chế độ nhập bàn phím theo ký tự, trong đó công việc của trình điều khiển là chấp nhận đầu vào và chuyển nó lên chương trình mà không sửa đổi, bao gồm tất cả các lần nhấn phím thô, lỗi và sửa lỗi.
+Soft Timers (Bộ hẹn giờ Mềm)Một cơ chế hẹn giờ dựa trên phần mềm tránh ngắt. Thay vào đó, ngay trước khi kernel trở về chế độ người dùng vì bất kỳ lý do gì (ví dụ: sau một lời gọi hệ thống), nó kiểm tra một đồng hồ thời gian thực để xem liệu bộ hẹn giờ mềm đã hết hạn chưa và nếu có, thực hiện sự kiện đã lên lịch.
+SpoolingMột cách giải quyết các thiết bị I/O chuyên dụng trong một hệ thống đa chương trình. Một quy trình ghi đầu ra của nó vào một tệp trong thư mục spooling đặc biệt, và một quy trình đặc biệt được gọi là daemon chịu trách nhiệm in các tệp từ thư mục đó.
+Stable Storage (Lưu trữ Ổn định)Một triển khai phần mềm sử dụng một cặp đĩa giống hệt nhau để tạo ra một hệ thống lưu trữ, trong đó thao tác ghi được đảm bảo hoặc hoàn thành chính xác hoặc không làm gì cả, giữ nguyên dữ liệu ban đầu, ngay cả khi xảy ra sự cố CPU.
+Striping (Chia Dải)Một kỹ thuật được sử dụng trong RAID, trong đó dữ liệu được phân phối trên nhiều ổ đĩa theo các đơn vị gọi là dải (strips). Điều này cho phép hoạt động song song, vì một yêu cầu cho một khối dữ liệu có thể được chia thành các yêu cầu đồng thời đến nhiều ổ đĩa.
+X Window System (Hệ thống Cửa sổ X)Một hệ thống cửa sổ di động, trong suốt mạng được sử dụng bởi hầu hết các hệ thống UNIX. Nó bao gồm một máy chủ X quản lý màn hình và thiết bị đầu vào, và các máy khách X (chương trình ứng dụng) giao tiếp với máy chủ thông qua giao thức X.
+
+
